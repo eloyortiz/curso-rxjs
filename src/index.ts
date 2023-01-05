@@ -1,4 +1,3 @@
-import { fromEvent, interval, sample } from 'rxjs';
 
 
 const observer = {
@@ -6,10 +5,3 @@ const observer = {
   complete: () => console.log("complete"),
 };
 
-const interval$ = interval(500);
-const click$ = fromEvent(document, 'click');
-
-interval$.pipe(
-  sample(click$)
-)
-.subscribe( observer);
