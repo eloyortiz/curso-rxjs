@@ -1,4 +1,4 @@
-import { asyncScheduler, distinctUntilChanged, fromEvent, pluck, throttleTime } from 'rxjs';
+import { fromEvent, map, sampleTime } from 'rxjs';
 
 
 const observer = {
@@ -6,25 +6,10 @@ const observer = {
   complete: () => console.log("complete"),
 };
 
-const click$ = fromEvent(document, 'click');
+const click$ = fromEvent<MouseEvent>(document, 'click');
 
 click$.pipe(
-  throttleTime(3000)
-)
-//.subscribe(observer);
-
-//Ejemplo 2
-const input = document.createElement('input');
-document.querySelector('body').append(input);
-
-const input$ = fromEvent(input, 'keyup');
-
-input$.pipe(
-  throttleTime(1000, asyncScheduler, {
-    leading: false, 
-    trailing: true
-  }),
-  pluck('target', 'value'),
-  distinctUntilChanged()
+  sampleTime(2000),
+  map( ({x,y}) => ({x,y})),
 )
 .subscribe(observer);
