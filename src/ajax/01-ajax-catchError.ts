@@ -1,11 +1,6 @@
 import { catchError, map, of } from "rxjs";
 import { ajax, AjaxError } from "rxjs/ajax";
 
-const observer = {
-  next: (val) => console.log("next", val),
-  complete: () => console.log("complete"),
-};
-
 const url = "https://api.github.com/users?per_page=5";
 
 const manejaErrores = (response: Response) => {
