@@ -1,7 +1,7 @@
 import { debounceTime, fromEvent, map, mergeAll, Observable } from "rxjs";
 import { ajax } from "rxjs/ajax";
-import { GithubUser } from "./interfaces/github-user.interfaces";
-import { GithubUsersResponse } from "./interfaces/github-users.interface";
+import { GithubUser } from "../interfaces/github-user.interfaces";
+import { GithubUsersResponse } from "../interfaces/github-users.interface";
 
 const body = document.querySelector("body");
 const textInput = document.createElement("input");
