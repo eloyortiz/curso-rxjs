@@ -15,10 +15,10 @@ const intervalo$ = new Observable<number>((subs) => {
   };
 });
 
-/**
- * 1. Casteo múltiple
+/** CARACTERISTICAS DEL SUBJETC
+ * 1. Casteo múltiple: multiples subscripciones están sujetas a este mismo subject/observable y va servir para distribuir la misma información a todos los lugares donde estén suscritos
  * 2. También es un observer
- * 3. Next, error y complete
+ * 3. También se puede manejar el Next, error y complete
  */
 
 const subject$ = new Subject();
